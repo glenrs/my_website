@@ -1,0 +1,21 @@
+---
+title: NEW POST
+author: Rex Sumsion
+date: '2018-05-08'
+slug: new-post
+categories: []
+tags: []
+description: ''
+featured: ''
+featuredalt: ''
+featuredpath: ''
+linktitle: ''
+type: "post"
+---
+
+## TEST RUN
+
+```{python}
+print("This is neat!")
+```
+
