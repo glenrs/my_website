@@ -124,7 +124,7 @@ canonifyURLs = true
 
 [[menu.main]]
   name = "Resume"
-  url = "/img/main/GRexSumsion_Resume.pdf"
+  url = "/img/main/grexsumsion_resume.pdf"
   identifier = "fa fa-newspaper-o"
   weight = 3
 
