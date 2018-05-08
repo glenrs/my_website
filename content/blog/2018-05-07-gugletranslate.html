@@ -1,0 +1,59 @@
+---
+title: GugleTranslate
+author: Rex Sumsion
+date: '2018-04-09'
+slug: gugletranslate
+categories: [C, Python, Wrapping, Docker]
+tags:
+  - C
+  - Python
+  - Wrapping
+  - Docker
+description: ''
+featured: ''
+featuredalt: ''
+featuredpath: ''
+linktitle: ''
+type: "post"
+#featured = "pic03.jpg"
+#featuredalt = "Pic 3"
+---
+
+
+
+<div id="gugletranslate" class="section level2">
+<h2>GugleTranslate</h2>
+<p>Gugle Translate has been designed to “translate” C and Python code. There are some Python libraries such as Cython that help this functionality accross C and Python. Gugle Translate avoids using these libraries in order to allow for the most versatility. The process is designed to execute as described in the image below.</p>
+<div class="figure">
+<img src="/post/2018-05-07-gugletranslate_files/prompt-1.png" />
+
+</div>
+</div>
+<div id="implementation" class="section level2">
+<h2>Implementation</h2>
+<p>Three implementations have been created since some complications arise in Python’s limitations. These limitations occur when compiling the latest python3.6 and C11 versions.</p>
+<ol style="list-style-type: decimal">
+<li><p>Embedded Python3.6 in C11 (Language 1 is C11 and Language 2 is Python3.6). This accomplishes the task as described.</p></li>
+<li><p>Extending Python3.6 with C99 (Language 1 is Python3.6 and Language 2 is C99). Extending Python uses functions that already exist in Python. Although there appears to be ways to update compilation to C11, when newer versions of Python3 are used, these functions default to C99.</p></li>
+<li><p>Extending embedded Python3.6 in C11 (Language 1 is Python3.6 and Language 2 is C11). This implementations allows for the most versatility possible. This implementation allows the user to use the exact versions of C and Python when compiling. The downsight is this does not “start” in Python. C will start, but will then import a python script that will execute. This script calls C embedded modules in Python. Python official documentation <a href="https://docs.python.org/3/extending/embedding.html">Section 1.4</a> comments, “Simply forget for a while that the application starts the Python interpreter.”</p></li>
+</ol>
+</div>
+<div id="execution" class="section level2">
+<h2>Execution</h2>
+<p>The docker image glenrs/gugletranslate has been developed for easy execution of the three implementations. Please run the docker container in interactive mode in order to choose which implementation to run. (code below)</p>
+<pre><code>docker pull glenrs/gugletranslate
+docker run -it --rm glenrs/gugletranslate /bin/bash</code></pre>
+<p>The following three commands will allow for easy execution of the three implementations</p>
+<ol style="list-style-type: decimal">
+<li>Embedded Python3.6 in C11</li>
+</ol>
+<pre><code>./executeC11ToPython3.6.sh</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Extending Python3.6 with C99</li>
+</ol>
+<pre><code>./executePython3.6ToC99.sh</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Extending embedded Python3.6 in C11</li>
+</ol>
+<pre><code>./executePython3.6ToC11.sh</code></pre>
+</div>
