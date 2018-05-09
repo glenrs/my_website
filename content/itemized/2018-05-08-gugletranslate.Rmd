@@ -1,0 +1,16 @@
+---
+title: GugleTranslate
+author: Rex Sumsion
+date: '2018-05-08'
+slug: gugletranslate
+categories: []
+tags: []
+description: 'Extending and embedding Python with C.'
+featured: ''
+featuredalt: ''
+featuredpath: ''
+linktitle: 'View on Github'
+type: "itemized"
+link: "https://www.github.com/glenrs/gugletranslate"
+---
+
